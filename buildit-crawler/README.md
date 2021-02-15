@@ -1,5 +1,10 @@
 # Simple crawler
 
+##Tech Stack
+- Java 8
+- Springboot
+- Jsoup
+
 ## Introduction
 The crawler in this application will take a url and essentially crawl pages within the dien domain.
 It will return a site-map.json file in the local directory. The site-map json file returned is a simple map,

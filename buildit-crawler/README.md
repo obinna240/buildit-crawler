@@ -6,14 +6,14 @@
 - Jsoup
 
 ## Introduction
-The crawler in this application will take a url and essentially crawl pages within the dien domain.
-It will return a site-map.json file in the local directory. The site-map json file returned is a simple map,
+The crawler in this application will take a url and essentially crawl pages within the given domain.
+It will return a site-map.json file in the local directory. The `site-map` json file returned is a simple map,
 showing the urls in each page visited.
 
-For instance given a url, `www.example.com`, the crawler would identify all the urls and static resources within the page, and then subsequently visiting each url as long as it is in the domain of the existing url.
+For instance given a url, `www.example.com`, the crawler would identify all the urls and static resources within the page, and then subsequently visit each url as long as it is in the domain of the existing url.
 ## Design
-The design takes into consideration the fact that a crawler could end up being a long running application because of the potential recursive nature due thanks to the depth of embedded urls, to this end,
-this design sets a default crawl depth of 5 in he Crawler class. Additionally, users can optionally stipulate their preferred crawl depth, by appendiing an additional Integer argument. 
+The design takes into consideration the fact that a crawler could end up being a long running application because of the potential recursive nature due to the depth of embedded urls, to this end,
+this design sets a default crawl depth of 5 in the Crawler class. Additionally, users can optionally stipulate their preferred crawl depth, by appendiing an additional Integer argument. 
 
 ## Running and Compiling
 The solution to the problem is based on `Springboot` and it runs from a class called `com.buildit.crawler.BuilditCrawlerApplication`.
@@ -77,8 +77,8 @@ e.g see sample below.
 ```
 ## Potential Improvements
 Potential improvements will be:
-- Make the application run faster by potentially using more threads. So this will involve having a thread pool with additional threads running in parallel processing urls and populating the index.
+- Make the application run faster by potentially using more threads. This will involve having a thread pool with additional threads running in parallel processing urls and populating the index.
 - From a design standpoint, move some of the default parameters like the default crawl depth into a properties file so that it is easily configurable
-- Using a database (Mongo or even Couchbase) as a sort of index for the crawled pages so that the can be persisted there and also to enhance speedy retrieval of Key Value pairs
-- Perhaps use a different library other than `Jsoup`. One would be `Crawler4j` which is more configurable and supports configurations like setting the number of threads, run time of the crawler and crawl depth.
-- Reacrchitecting the code so that it is reusable and applicable to other crawl domains besides websites. For instance local directories etc
+- Using a database (Mongo or even Couchbase) as a sort of index for the crawled pages so that they can be persisted there and also to enhance speedy retrieval of Key Value pairs
+- Perhaps use a different library other than `Jsoup` such as `Crawler4j` which is more configurable and supports configurations like setting the number of threads, run time of the crawler and crawl depth.
+- Re-Architecting the code so that it is reusable and applicable to other crawl domains besides websites. For instance local directories etc
